@@ -170,9 +170,10 @@ const Home = (props: HomeProps) => {
 
       <MintContainer>
         {!wallet.connected ? (
-          <ConnectButton>Connect Wallet</ConnectButton>
+          <ConnectButton style={{background:"#db2600"}}
+          >Connect Wallet</ConnectButton>
         ) : (
-          <MintButton
+          <MintButton style={{background:"#db2600"}}
             disabled={isSoldOut || isMinting || !isActive}
             onClick={onMint}
             variant="contained"

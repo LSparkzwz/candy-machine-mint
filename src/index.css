@@ -5,9 +5,46 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #2C2930;
+  padding-bottom:0;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@media screen and (max-width: 600px) {
+  .hide-mobile {display: none;}
+}
+
+@media screen and (min-width: 601px) {
+  .nav-icon {display: none;}
+}
+
+@font-face {
+  font-family: "InTheDark";
+  src: url("fonts/inthedark.ttf");
+}
+
+.akuma{
+  object-fit: contain;
+}
+
+@media screen and (orientation:portrait) and (max-width: 600px) {
+  .akuma.a{
+    display: none;
+  }
+
+
+  .mintcont{
+    flex-direction:column!important;
+
+  }
+
+  .mintb{
+  }
+
 }
