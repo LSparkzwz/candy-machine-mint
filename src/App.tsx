@@ -1,8 +1,11 @@
 import "./App.css";
 import { useMemo, useState, useEffect } from "react";
+import {useWindowDimensions} from "./utils";
 
 import Home from "./Home";
 import Navbar from "./Navbar";
+import About from "./About";
+
 
 import * as anchor from "@project-serum/anchor";
 import { clusterApiUrl } from "@solana/web3.js";
@@ -40,30 +43,6 @@ const connection = new anchor.web3.Connection(rpcHost);
 const startDateSeed = parseInt(process.env.REACT_APP_CANDY_START_DATE!, 10);
 
 const txTimeout = 30000; // milliseconds (confirm this works for your project)
-
-let getWindowDimensions = () => {
-  const { innerWidth: width, innerHeight: height } = window;
-  return {
-    width,
-    height
-  };
-}
-
-let useWindowDimensions = () => {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  return windowDimensions;
-}
-
 
 const App = () => {
   const endpoint = useMemo(() => clusterApiUrl(network), []);
@@ -127,11 +106,12 @@ const App = () => {
             </div>
           </div>
         </div>
-        <div style={{height:height, display:"flex", flexDirection:"column", maxHeight:height, flex:1, background:"#1a0b0b"}}>
 
-        </div>
+
+      <About height={height} width={width}/>
       </div>
   );
 };
 
 export default App;
+
